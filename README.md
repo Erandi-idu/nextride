@@ -25,8 +25,5 @@ NextRide is a high-performance, minimalist car sale web application designed for
 4. **Detail View:** Clicking 'Details' opens a dynamic page with full specs and description.
 5. **Manage:** Integrated delete functionality to manage existing listings.
 
-## 📸 Screenshots
-*(You can add your project screenshots here later)*
-
 ---
 Developed with ❤️ by Erandi
