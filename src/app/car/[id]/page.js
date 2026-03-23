@@ -42,11 +42,14 @@ export default async function CarDetails({ params }) {
           {/* Image Section */}
           <div className="space-y-6">
             <div className="aspect-video relative overflow-hidden rounded-[2.5rem] border border-slate-800 shadow-2xl">
-              <img 
-                src="car.image" 
-                className="w-full h-full object-cover"
-                alt={car.brand}
-              />
+              {/* Look for the <img> tag inside src/app/car/[id]/page.js */}
+<div className="aspect-video relative overflow-hidden rounded-[2.5rem] border border-slate-800 shadow-2xl">
+  <img
+    src={car.image || "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=800"} 
+    className="w-full h-full object-cover"
+    alt={car.brand}
+  />
+</div>
             </div>
             {/* Thumbnails Placeholder */}
             <div className="grid grid-cols-4 gap-4">

@@ -1,13 +1,18 @@
 import mongoose from "mongoose";
 
-const connectDB = async () => {
-  if (mongoose.connections[0].readyState) return;
-  try {
 
-    await mongoose.connect("mongodb://nextuser:pass123@ac-ycjchng-shard-00-00.bnxkbbc.mongodb.net:27017,ac-ycjchng-shard-00-01.bnxkbbc.mongodb.net:27017,ac-ycjchng-shard-00-02.bnxkbbc.mongodb.net:27017/?ssl=true&replicaSet=atlas-13r752-shard-0&authSource=admin&appName=Cluster0");
-    console.log("MongoDB Connected!");
+const MONGODB_URI = process.env.MONGODB_URI;
+
+const connectDB = async () => {
+  if (mongoose.connection.readyState >= 1) return;
+
+  try {
+    await mongoose.connect(MONGODB_URI, {
+      serverSelectionTimeoutMS: 5000, 
+    });
+    console.log("✅ MongoDB Connected Successfully!");
   } catch (error) {
-    console.log("DB Connection Error:", error);
+    console.error("❌ DB Connection Error:", error.message);
   }
 };
 
